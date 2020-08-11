@@ -12,7 +12,7 @@ import Sidebar from './components/sidebar/Sidebar';
 import Addpost from './components/Dialogs/message/Addpost';
 
 const App = (props) => {
-  debugger
+  
 
 return ( <BrowserRouter>
   <div className='app-wrapper'>
