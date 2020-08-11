@@ -1,0 +1,13 @@
+.header {
+    grid-area: h;
+    background-color: green;
+    border-radius: 5px;
+
+}
+
+.header img {
+    width: 75px;
+    height: 75px;
+    margin-left: 20px;
+    margin-top: -7px;
+}

@@ -1,0 +1,10 @@
+.MyPosts{
+  padding: 10px;
+}
+
+  .button {
+  background-color: blue;
+    border-radius: 10px;
+    color: #4CAF50;
+    font-size: 16px;
+  }
