@@ -11,7 +11,7 @@ const Profile = (props) => {
       <div className={s.avadesc}>
         ava + description2
       </div>
-      <MyPosts statet ={props.state.postData}/>
+      <MyPosts statet ={props.state.postData} addPost={props.addPost}/>
       </div>
     
   )

@@ -1,3 +1,5 @@
+import { rerendertree } from "../render";
+
 let state = {
     //profile -> myposts.jsx
     
@@ -6,9 +8,10 @@ let state = {
             { id:1, message: 'Hi, how are you?', likesCount: 13},
             { id:2, message: 'Its my first post', likesCount: 15},
             { id:3, message: 'Its my first post', likesCount: 15},
-            { id:4, message: 'Its my first post', likesCount: 15}
+            { id:4, message: 'Its my first post', likesCount: 15},
         ]
     },
+    
 //dialogs.jsx
     messagespage:{
         dialogsData: [
@@ -54,4 +57,14 @@ let state = {
 
 
 }
-export default state;
+export const addPost = (postMessage)=>{
+    let newPost={
+        id:5,
+        message:postMessage,
+        likesCount:0
+    };
+    state.profilepage.postData.push(newPost);
+    rerendertree()
+}
+export default state
+

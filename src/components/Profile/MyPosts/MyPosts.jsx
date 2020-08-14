@@ -3,12 +3,17 @@ import s from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
 const MyPosts = (props) => {
-  let newpostelement=React.createRef()
-  let addpost=()=>{alert(newpostelement.current.value)}
-
   let messagesElements = props.statet.map((m) => (
     <Post message={m.message} likesCount={m.likesCount} />
   ));
+
+  let newpostelement = React.createRef();
+  let addPost = () => {
+    debugger;
+    let text = newpostelement.current.value;
+    props.addPost(text);
+  };
+
   return (
     <div className={s.MyPosts}>
       <div class={s.MyPoststitle}>
@@ -17,9 +22,17 @@ const MyPosts = (props) => {
         </h3>
       </div>
       <div>
-        <textarea name="" ref={newpostelement} id="text_area_addpost" cols="30" rows="3" />
+        <textarea
+          name=""
+          ref={newpostelement}
+          id="text_area_addpost"
+          cols="30"
+          rows="3"
+        />
         <div>
-          <button onClick={addpost} className={s.button} >Add post</button>
+          <button onClick={addPost} className={s.button}>
+            Add post
+          </button>
         </div>
       </div>
       <div className={s.posts}>{messagesElements}</div>
