@@ -11,14 +11,18 @@ import Settings from './components/Settings/Settings';
 import Addpost from './components/Dialogs/message/Addpost';
 
 const App = (props) => {
-debugger
+  debugger
   return (<BrowserRouter>
     <div className='app-wrapper'>
       <Header />
       <Navbar />
       <div class='app-wrapper-content'>
-        <Route path='/dialogs' render={() => <Dialogs dialogs={props.state.messagespage} />} />
-        <Route path='/profile' render={() => <Profile state={props.state.profilepage} addPost={props.addPost} />} />
+        <Route path='/dialogs'
+          render={() => <Dialogs dialogs={props.state.messagespage} />} />
+        <Route path='/profile' render={() => <Profile
+          profilepage={props.state.profilepage}
+          updateNewPostText={props.updateNewPostText}
+          addPost={props.addPost} />} />
         <Route path='/news' render={() => <News />} />
         <Route path='/music' render={() => <Music />} />
         <Route path='/Settings' render={() => <Settings />} />
