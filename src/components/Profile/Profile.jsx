@@ -1,7 +1,6 @@
 import React from "react";
 import s from "./Profile.module.css";
 import MyPosts from "./MyPosts/MyPosts";
-
 const Profile = (props) => {
   debugger;
   return (
@@ -22,5 +21,4 @@ const Profile = (props) => {
     </div>
   );
 };
-
 export default Profile;

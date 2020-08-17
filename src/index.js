@@ -2,12 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import state from './redux/state';
-import { addPost, updateNewPostText, subscribe } from './redux/state';
 import { BrowserRouter } from 'react-router-dom';
-export let rerendertree=()=>{
-    ReactDOM.render(<App state={state} updateNewPostText={updateNewPostText} addPost={addPost}/>, document.getElementById('root'));
+import store from './redux/state';
+export let rerendertree=(state)=>{
+    ReactDOM.render(<App state={store.getState()}
+    updateNewPostText={store.updateNewPostText.bind(store)} 
+    addPost={store.addPost.bind(store)}/>, document.getElementById('root'));
 }
-rerendertree(state)
-subscribe(rerendertree)
-
+rerendertree(store.getState())
+store.subscribe(rerendertree)

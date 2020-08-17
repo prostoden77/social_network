@@ -6,7 +6,6 @@
     "h h"
     "n c";
   background-color: #83ba43;
-
   grid-template-rows: 60px 1fr;
   grid-template-columns: 2fr 10fr;
   /* grid-gap: 10px; */
@@ -15,6 +14,5 @@
   grid-area: c;
   align-content: space-between;
   border-radius: 5px;
-
   background-color: #2196f3;
 }

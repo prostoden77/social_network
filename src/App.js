@@ -9,7 +9,6 @@ import News from './components/News/News';
 import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
 import Addpost from './components/Dialogs/message/Addpost';
-
 const App = (props) => {
   debugger
   return (<BrowserRouter>
@@ -27,12 +26,9 @@ const App = (props) => {
         <Route path='/music' render={() => <Music />} />
         <Route path='/Settings' render={() => <Settings />} />
         <Route path='/dialogs' render={() => <Addpost />} />
-
-
       </div>
     </div>
   </BrowserRouter>
   );
 }
-
 export default App;

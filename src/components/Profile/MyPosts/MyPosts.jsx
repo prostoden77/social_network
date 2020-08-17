@@ -1,24 +1,20 @@
 import React from "react";
 import s from "./MyPosts.module.css";
 import Post from "./Post/Post";
-
 const MyPosts = (props) => {
   let messagesElements = props.statet.map((m) => (
     <Post message={m.message} likesCount={m.likesCount} />
   ));
-
   let newpostelement = React.createRef();
   let addPost = () => {
     props.addPost();
     props.updateNewPostText('')
   };
   let onPostchange =()=>{
+    debugger
     let text = newpostelement.current.value;
     props.updateNewPostText(text)
-
-debugger
   }
-
   return (
     <div className={s.MyPosts}>
       <div class={s.MyPoststitle}>
@@ -46,5 +42,4 @@ debugger
     </div>
   );
 };
-
 export default MyPosts;

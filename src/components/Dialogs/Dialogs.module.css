@@ -1,11 +1,8 @@
 .dialogs {
   display: grid;
-
   grid-template-columns: 1fr 4fr;
  
 }
-
-
 .dialogs textarea {
     position: relative;
     left: 150px;
@@ -23,7 +20,6 @@
 .dialogsitems .active {
   color: gold;
 }
-
 .messages {
   padding: 10px;
 }

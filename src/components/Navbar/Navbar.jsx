@@ -2,9 +2,7 @@ import React from 'react';
 import {NavLink} from 'react-router-dom';
 import s from './Navbar.module.css';
 import Sidebar from './../sidebar/Sidebar';
-
 const Navbar = () => {
-
     return (<nav className={s.nav}>
         <div className={s.item}>
             <NavLink to='/Profile' activeClassName={s.activelink}>Profile</NavLink>
@@ -25,5 +23,4 @@ const Navbar = () => {
     </nav>
     )
 }
-
 export default Navbar;

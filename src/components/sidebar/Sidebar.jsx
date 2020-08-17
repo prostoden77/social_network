@@ -14,7 +14,6 @@ const Sidebar = () => {
             alt=""
           />
         </a>
-
         <a href="" className={s.bold}>
           саша термакова
           <img
@@ -22,7 +21,6 @@ const Sidebar = () => {
             alt=""
           />
         </a>
-
         <a href="" className={s.bold}>
           света фаустова
           <img
