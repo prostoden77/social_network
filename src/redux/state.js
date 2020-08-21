@@ -8,7 +8,7 @@ let store = {
                 { id: 3, message: 'Its my first post', likesCount: 15 },
                 { id: 4, message: 'Its my first post', likesCount: 15 },
             ],
-            newPostText: "newPostText"
+           
         },
         //dialogs.jsx
         messagespage: {
@@ -55,7 +55,7 @@ let store = {
     getrerenderTree() {
         return this._rerendertree
     },
-    addPost() {
+    _addPost() {
         let newPost = {
             id: 5,
             message: this._state.profilepage.newPostText,
@@ -65,14 +65,27 @@ let store = {
         this._state.profilepage.newPostText = ""
         this.getrerenderTree(this._state)
     },
-    updateNewPostText(newpost) {
-        this._state.profilepage.newPostText = newpost
-        debugger
-        store.rerendertree()
+    _updateNewPostText(newPost) {
+        this._state.profilepage.newPostText = newPost
     },
     subscribe(observer) {
         store.rerendertree = observer
+    },
+    dispatch(action) {
+        if (action.type === 'add-post') {
+            this._addPost()
+        } else if (action.type === 'update-new-post-text') {
+            this._updateNewPostText(action.newPost)
+        }
+        store.rerendertree(this._state)
+
     }
 }
+export const addPostActionCreator = ()=>{
+    return {type:'add-post'}}
+    
+ export const updateNewpostTextActionCreator = (text)=>{
+    return {type:'update-new-post-text',newPost: text}}
+      
 window.store = store
 export default store

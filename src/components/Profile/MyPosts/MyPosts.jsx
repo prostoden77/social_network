@@ -1,21 +1,27 @@
 import React from "react";
 import s from "./MyPosts.module.css";
 import Post from "./Post/Post";
+import { updateNewpostTextActionCreator, addPostActionCreator } from "../../../redux/state";
+
 const MyPosts = (props) => {
+  debugger
   let messagesElements = props.statet.map((m) => (
     <Post message={m.message} likesCount={m.likesCount} />
   ));
   let newpostelement = React.createRef();
   let addPost = () => {
-    props.addPost();
-    props.updateNewPostText('')
+    let text = newpostelement.current.value;
+    debugger
+    props.dispatch(addPostActionCreator());
   };
-  let onPostchange =()=>{
+  let onPostchange =()=>{ 
     debugger
     let text = newpostelement.current.value;
-    props.updateNewPostText(text)
+    props.dispatch(updateNewpostTextActionCreator(text))
   }
+  
   return (
+    
     <div className={s.MyPosts}>
       <div class={s.MyPoststitle}>
         <h3>
@@ -30,6 +36,7 @@ const MyPosts = (props) => {
           id="text_area_addpost"
           cols="30"
           rows="3"
+          
           value={props.newPostText}
         />
         <div>

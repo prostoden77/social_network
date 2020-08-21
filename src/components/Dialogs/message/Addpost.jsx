@@ -1,8 +1,8 @@
 import React from "react";
 import s from "./../Dialogs.module.css";
 import ss from "./../../Profile/MyPosts/MyPosts.module.css";
-import Message from './Message';
 const Addpost = (props) => {
+  debugger
 if(window.location.href.length>29){
 return(<div className={s.dialogs}>
   <div className='area'>

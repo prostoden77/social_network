@@ -2,7 +2,7 @@ import React from "react";
 import s from "./Profile.module.css";
 import MyPosts from "./MyPosts/MyPosts";
 const Profile = (props) => {
-  debugger;
+  debugger
   return (
     <div>
       <div>
@@ -13,12 +13,10 @@ const Profile = (props) => {
       </div>
       <div className={s.avadesc}>ava + description2</div>
       <MyPosts
-        updateNewPostText={props.updateNewPostText}
+        dispatch={props.dispatch}
         newPostText={props.profilepage.newPostText}
         statet={props.profilepage.postData}
-        addPost={props.addPost}
       />
-    </div>
-  );
+    </div>)
 };
 export default Profile;
