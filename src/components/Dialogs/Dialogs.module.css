@@ -1,18 +1,9 @@
 .dialogs {
   display: grid;
   grid-template-columns: 1fr 4fr;
- 
 }
-.dialogs textarea {
-    position: relative;
-    left: 150px;
-    top: -150px;
-  
-}
-.dialogs button{
-  position: relative;
-    left: 150px;
-    top: -150px;
+.areabutton{
+padding-top: 30px;
 }
 .dialogsitems {
   padding: 10px;

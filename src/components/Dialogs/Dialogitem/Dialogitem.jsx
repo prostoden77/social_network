@@ -1,17 +1,18 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import s from "./../Dialogs.module.css";
+import { ee } from "../../../redux/state";
 const Dialogitem = (props) => {
-  debugger
+  debugger;
   let path = "/dialogs/" + props.name;
   return (
-    <div>
-    <div className={s.dialog + " " + s.active}>
-      <NavLink to={path}>{props.name}</NavLink>
+    <div onLoad={ee}> 
+      <div className={s.dialog + " " + s.active}>
+        <NavLink to={path}>{props.name}</NavLink>
+      </div>
+      <div>{props.message}</div>
+      <img src={props.ava} />
     </div>
-    <img src={props.ava} alt=""/>
-    </div>
-    
   );
 };
 export default Dialogitem;
