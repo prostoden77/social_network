@@ -1,5 +1,5 @@
+import profileReducer  from './profile-reducer';
 const update_new_message_body = 'update_new_message_body'
-import { profileReducer } from './profile-reducer';
 const send_message = 'send_message'
 let store = {
     _state: {
@@ -51,12 +51,18 @@ let store = {
         return this._rerendertree
     },
     
+    _updateNewPostText(newPost) {
+        this._state.profilepage.newPostText = newPost
+    },
     subscribe(observer) {
         store.rerendertree = observer
     },
     dispatch(action) {
-        profileReducer(this._state.profilepage, action)        
-         if (action.type === send_message) {
+        this._state.profilepage = profileReducer(this._state.profilepage, action)
+        if (action.type === update_new_message_body) {
+            this._state.newMessageBody = action.body
+             
+        } else if (action.type === send_message) {
             let body = this._state.newMessageBody
             this._state.messagespage.messages.push({id:6, message:body})
             this._state.newMessageBody = ''
