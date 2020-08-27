@@ -1,4 +1,5 @@
 const update_new_message_body = 'update_new_message_body'
+import { profileReducer } from './profile-reducer';
 const send_message = 'send_message'
 let store = {
     _state: {
@@ -49,32 +50,13 @@ let store = {
     getrerenderTree() {
         return this._rerendertree
     },
-    _addPost() {
-        let newPost = {
-            id: 5,
-            message: this._state.profilepage.newPostText,
-            likesCount: 0
-        };
-        this._state.profilepage.postData.push(newPost);
-        this._state.profilepage.newPostText = ""
-        this.getrerenderTree(this._state)
-    },
-    _updateNewPostText(newPost) {
-        this._state.profilepage.newPostText = newPost
-    },
+    
     subscribe(observer) {
         store.rerendertree = observer
     },
     dispatch(action) {
-        
-        if (action.type === 'add-post') {
-            this._addPost()
-        } else if (action.type === 'update-new-post-text') {
-            this._updateNewPostText(action.newPost)
-        } else if (action.type === update_new_message_body) {
-            this._state.newMessageBody = action.body
-             
-        } else if (action.type === send_message) {
+        profileReducer(this._state.profilepage, action)        
+         if (action.type === send_message) {
             let body = this._state.newMessageBody
             this._state.messagespage.messages.push({id:6, message:body})
             this._state.newMessageBody = ''
