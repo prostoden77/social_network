@@ -11,7 +11,6 @@ let store = {
                 { id: 3, message: 'Its my first post', likesCount: 15 },
                 { id: 4, message: 'Its my first post', likesCount: 15 },
             ],
-
         },
         //dialogs.jsx
         messagespage: {
@@ -50,6 +49,20 @@ let store = {
     getrerenderTree() {
         return this._rerendertree
     },
+    _addPost(){
+      
+        let newPost = {
+            id: 5,
+            message: this._state.profilepage.newPostText,
+            likesCount: 0
+        };
+        this._state.profilepage.postData.push(newPost);
+        state.newPostText = ""
+        state.getrerenderTree(state)
+    } else if (action.type === 'update-new-post-text') {
+        debugger
+        this._state.profilepage.newPostText(action.newPost)
+    }
     
     _updateNewPostText(newPost) {
         this._state.profilepage.newPostText = newPost
@@ -58,8 +71,10 @@ let store = {
         store.rerendertree = observer
     },
     dispatch(action) {
-        this._state.profilepage = profileReducer(this._state.profilepage, action)
-        if (action.type === update_new_message_body) {
+        if (action.type === 'add-post') {
+            this._addPost()
+        }
+       else if (action.type === update_new_message_body) {
             this._state.newMessageBody = action.body
              
         } else if (action.type === send_message) {

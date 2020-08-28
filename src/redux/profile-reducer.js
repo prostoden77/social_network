@@ -2,7 +2,7 @@
 const profileReducer = (state, action)=>{
     
     if (action.type === 'add-post') {
-       
+      
         let newPost = {
             id: 5,
             message: state.newPostText,
@@ -13,7 +13,7 @@ const profileReducer = (state, action)=>{
         state.getrerenderTree(state)
     } else if (action.type === 'update-new-post-text') {
         debugger
-        state(action.newPost)
+        state.newPostText(action.newPost)
     }
     return state;
 }
