@@ -1,6 +1,7 @@
 import profileReducer  from './profile-reducer';
 const update_new_message_body = 'update_new_message_body'
 const send_message = 'send_message'
+let r='7'
 let store = {
     _state: {
         //profile -> myposts.jsx
